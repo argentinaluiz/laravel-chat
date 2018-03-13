@@ -28,7 +28,7 @@ require('vue-resource');
  */
 
 Vue.http.interceptors.push((request, next) => {
-    request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+    request.headers.set('X-CSRF-TOKEN',Laravel.csrfToken);
 
     next();
 });
@@ -39,13 +39,13 @@ Vue.http.interceptors.push((request, next) => {
  * allows your team to easily build robust real-time web applications.
  */
 
+import Pusher from "pusher-js"
 import Echo from "laravel-echo"
-
 //window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'c1383351b3797f480f6e',
-    cluster: 'us2',
+    key: '8282baa07f3cd0429da9',
+    cluster: 'mt1',
     encrypted: true
 });

@@ -24,7 +24,7 @@ const app = new Vue({
         messages: []
     },
     ready(){
-        Echo.join(`room.${roomId}`)
+        window.Echo.join(`room.${roomId}`)
             .listen('SendMessage', (e) => {
                 console.log(e);
                 this.messages.push(e);
